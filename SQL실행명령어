@@ -1,0 +1,23 @@
+<SQL문을 가져와야 할 때 cmd 명령어>
+  1. sqlplus 사용자이름/사용자비밀번호
+  2. @@sql들어있는주소(위치)\sql파일이름.sql
+
+예시)
+C:\Users\user1>sqlplus
+
+SQL*Plus: Release 21.0.0.0.0 - Production on 목 10월 5 16:36:08 2023
+Version 21.3.0.0.0
+
+Copyright (c) 1982, 2021, Oracle.  All rights reserved.
+
+사용자명 입력: system
+비밀번호 입력: kh1234
+마지막 성공한 로그인 시간: 목 10월 05 2023 15:40:02 +09:00
+
+다음에 접속됨:
+Oracle Database 21c Express Edition Release 21.0.0.0.0 - Production
+Version 21.3.0.0.0
+
+SQL> @@C:\Users\user1\Desktop\EMP_EXAMPLE.sql
+
+------이하 sql문 자동실행..
