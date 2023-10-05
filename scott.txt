@@ -1,0 +1,17 @@
+Microsoft Windows [Version 10.0.19045.3448]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\user1>sqlplus SCOTT/uiop0987
+
+SQL*Plus: Release 21.0.0.0.0 - Production on 목 10월 5 17:29:02 2023
+Version 21.3.0.0.0
+
+Copyright (c) 1982, 2021, Oracle.  All rights reserved.
+
+마지막 성공한 로그인 시간: 목 10월 05 2023 17:28:07 +09:00
+
+다음에 접속됨:
+Oracle Database 21c Express Edition Release 21.0.0.0.0 - Production
+Version 21.3.0.0.0
+
+SQL> @@C:\Users\user1\Desktop\EMP_EXAMPLE.sql
