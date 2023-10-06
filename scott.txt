@@ -1,3 +1,5 @@
+<SCOTT계정 생성하고, CMD창에서 해당 스크립트 파일 실행 및 구축하기>
+
 Microsoft Windows [Version 10.0.19045.3448]
 (c) Microsoft Corporation. All rights reserved.
 
@@ -15,3 +17,5 @@ Oracle Database 21c Express Edition Release 21.0.0.0.0 - Production
 Version 21.3.0.0.0
 
 SQL> @@C:\Users\user1\Desktop\EMP_EXAMPLE.sql
+
+//@@경로\파일이름 쓰고 OracleDeveloper 들어가서 테이블 잘 만들어졌는지 확인하면 끝
