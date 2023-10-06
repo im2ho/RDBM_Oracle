@@ -1,0 +1,27 @@
+DML (Data Manipulaion Language)
+  데이터 조작 언어
+  데이터를 생성, 수정, 삭제하거나 조회하는데 사용되는 언어
+
+<대표적 명령문>
+
+1. INSERT(데이터 삽입) : 데이터베이스 테이블에 새로운 레코드(행) 삽입
+    
+    INSERT INO 테이블이름 (column 1, column 2, column3, ...)
+      VALUES (값1, 값2, 값3, ...)
+
+2. SELECT(데이터 조회) : 데이터베이스 테이블에서 데이터를 조회하고 검색
+    
+    SELECT 열1, 열2, ... (if 모든 정보를 보고자 할 경우 열 이름 기입X, * 입력)
+      FROM 테이블이름
+        WHERE 조건;
+
+3. UPDATE(데이터 수정) : 이미 존재하는 데이터를 업데이트하고 수정
+  
+    UPDATE 테이블이름
+      SET 열1=값1, 열2=값2,...
+        WHERE 조건;
+
+4. DELETE(데이터 삭제) : 데이터베이스 테이블에서 레코드 삭제
+  
+    DELETE FROM 테이블이름
+      WHERE 조건;
