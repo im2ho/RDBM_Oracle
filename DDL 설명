@@ -1,31 +1,53 @@
 DDL (Data Definition Language)
-데이터베이스 구조를 정의하고 관리하는데 사용됨
-객체를 생성, 수정, 삭제..
+  데이터의 스키마 객체를 생성, 변경, 제거하거나 권한의 부여나 박탈 주석 자료버림등을 수행
+  데이터베이스 구조를 정의하고 관리하는데 사용됨
+  객체를 생성, 수정, 삭제..
 
 <대표적인 명령문>
-CREATE(생성), ALTER(수정), DROP(삭제), COMMENT(주석), GRANT(권한 부여)..DELETE는?
+CREATE(생성), ALTER(변경), DROP(제거), COMMENT(주석), GRANT(권한 부여), REVOKE(권한 박탈)
+TRUNCATE(자료 버림)
 
-CREATE(생성)
-  CREATE TABLE : 새로운 테이블 생성
-  CREATE VIEW : 가상의 테이블을 생성해서 데이터 베이스의 일부 데이터에 대한 뷰를 정의함
-  CREATE DATABASE : 새로운 데이터베이스를 생성
-  CREATE INDEX : 인덱스를 생성하여 데이터 검색 속도 향상시킴
+각 문장은 CREATE, ALTER, TRUNCATE, GRANT, REVOKE, COMMENT 등으로 시작함
 
-ALTER(수정)
-  ALTER TABLE: 이미 존재하는 테이블의 구조를 변경 > 열 추가, 수정, 삭제, 제약 조건 등을 변경 가능
-  ALTER INDEX : 이미 존재하는 인덱스의 구조를 변경
 
-DROP(삭제)
-  DROP TABLE : 테이블 삭제
-  DROP VIEW : 뷰 삭제
-  DROP DATABASE : DB 삭제
-  DROP INDEX : 인덱스 삭제
+1. CREATE(생성)
 
-GRANT(권한 부여)
-  -권한을 부여하는 키워드로,
-  -SELECT, INSERT, UPDATE, DELETE, CREATE TALBLE 등.. 수행하는 권한을 지정할 수 있음
+    CREATE TABLE : 새로운 테이블 생성
+    CREATE VIEW : 가상의 테이블을 생성해서 데이터 베이스의 일부 데이터에 대한 뷰를 정의함
+    CREATE DATABASE : 새로운 데이터베이스를 생성
+    CREATE INDEX : 인덱스를 생성하여 데이터 검색 속도 향상시킴
 
-  GRANT 권한 TO 역할 또는 사용자 [WITH GRANT OPTION];
+2. ALTER(수정)
+
+    ALTER TABLE: 이미 존재하는 테이블의 구조를 변경 > 열 추가, 수정, 삭제, 제약 조건 등을 변경 가능
+    ALTER INDEX : 이미 존재하는 인덱스의 구조를 변경
+
+    ALTER SESSION SET "_ORACLE_SCRIPT" = TRUE; // Oracle DataBase에서 "_ORACLE_SCRIPT" 모드 활성화
+
+      > _ORACLE_SCRIPT : Oracle DataBase에서 12c 이상 버전에서 사용할 수 있는 특별한 모드
+      
+      > SESSION (세션) : 
+        컴퓨터 네트워크 분야에서 사용되는 용어로, 사용자 또는 클라이언트 서버 간의 연결을 나타냄                     
+        데이터베이스는 사용자 또는 응용프로그램이 데이터베이스 서버에 연결                   
+        상호작용 하는 동안 작업의 단위 의미                     
+        각 세션은 독립적인 환경을 가지며, 데이터베이스 서버와 통신을 담당
+
+      > SET (설정) : 
+        설정 또는 조정하는데 사용
+        변수 설정 : 변수값을 설정하거나 변경하는데 사용 ex) SET Salary = 5000; // 변수를 5000으로 
+
+
+3. DROP(삭제)
+    DROP TABLE : 테이블 삭제
+    DROP VIEW : 뷰 삭제
+    DROP DATABASE : DB 삭제
+    DROP INDEX : 인덱스 삭제
+
+4. GRANT(권한 부여)
+    -권한을 부여하는 키워드로,
+    -SELECT, INSERT, UPDATE, DELETE, CREATE TALBLE 등.. 수행하는 권한을 지정할 수 있음
+
+     GRANT 권한 TO 역할 또는 사용자 [WITH GRANT OPTION];
 
 <권한 종류>
   CREATE SESSION : 사용자가 데이터베이스에 로그인하고 세션을 생성하는데 필요한 권한 > 사용자에 데이터베이스 로그인 권한 부여
