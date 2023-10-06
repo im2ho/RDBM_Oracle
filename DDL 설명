@@ -23,7 +23,8 @@ TRUNCATE(자료 버림)
     ALTER INDEX : 이미 존재하는 인덱스의 구조를 변경
 
     ALTER SESSION SET "_ORACLE_SCRIPT" = TRUE; // Oracle DataBase에서 "_ORACLE_SCRIPT" 모드 활성화
-    _ORACLE_SCRIPT : Oracle DataBase에서 12c 이상 버전에서 사용할 수 있는 특별한 모드
+
+      > _ORACLE_SCRIPT : Oracle DataBase에서 12c 이상 버전에서 사용할 수 있는 특별한 모드
       
       > SESSION (세션) : 
         컴퓨터 네트워크 분야에서 사용되는 용어로, 사용자 또는 클라이언트 서버 간의 연결을 나타냄                     
