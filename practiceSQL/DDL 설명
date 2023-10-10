@@ -20,6 +20,13 @@ TRUNCATE(자료 버림)
 2. ALTER(수정)
 
     ALTER TABLE: 이미 존재하는 테이블의 구조를 변경 > 열 추가, 수정, 삭제, 제약 조건 등을 변경 가능
+    
+    ALTER TABLE 테이블이름 MODIFY (변경하고자 하는 열의이름 문자열유형(수정값 BYTE));
+    ex)
+      ALTER TABLE employee MODIFY (job VARCHAR2(50 BYTE)); 
+      > 'employee' 테이블의 'job'열의 입력된 값이 열의 최대 길이를 초과하여 문제가 발생하여,
+         ALTER와 MODIFY를 작성해서 job열의 크기를 50BYTE로 변경함
+
     ALTER INDEX : 이미 존재하는 인덱스의 구조를 변경
 
     ALTER SESSION SET "_ORACLE_SCRIPT" = TRUE; // Oracle DataBase에서 "_ORACLE_SCRIPT" 모드 활성화
