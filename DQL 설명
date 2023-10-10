@@ -25,8 +25,35 @@ GROUP BY : 검색 결과를 그룹화하고 그룹 단위로 데이터를 집계
       HAVING AVG(열 이름) < 10.0; //조건 지정
 
 ORDER BY : 검색 결과를 정렬하기 위해 사용, 정렬할 열 및 정렬 순서를 지정
+    ex)
+      SELECT 열 이름 FROM 테이블명
+      ORDER BY 열이름 DESC; //혹은 ASC;
+        -ASC : 오름차순(Default) / DESC : 내림차순
   
 UNION : 두 개 이상의 SELECT문 결과를 결합해서 하나의 결과 집합으로 반환
+    ex)
+      SELECT 열 이름 FROM 테이블1
+      UNION
+      SELECT 열 이름 FROM 테이블2;
 
 JOIN : 다수의 테이블을 연결하여 데이터를 결합하는데 사용
   INNER JOIN / LEFT JOIN / RIGHT JOIN / FULL OUTER JOIN 등... 다양한 결합유형
+    ex)
+      SELECT o.OrderID, C.CName
+      FROM Order o
+      INNER JOIN Customers ON o.C_ID = c.C_ID;
+
+**JOIN 내 다양한 JOIN문들
+
+    INNER JOIN : 데이터베이스에서 여러 테이블 간의 관계를 설정하고, 데이터를 결합
+                 두 개 이상의 테이블을 연결하여 공통된 값을 기준으로 행을 결합
+
+    LEFT JOIN : 왼쪽 테이블(첫 번째 테이블)을 기준으로 오른쪽 테이블에서 일치하는 행을 선택
+                왼쪽 테이블에 있는 모든 행이 결과 집합에 포함되고, 오른쪽 테이블과 일치하는 행이 없으면 NULL값 포함
+    (RIGHT JOIN의 경우는 반대)
+
+    FULL JOIN (FULL OUTER JOIN) :
+      왼쪽 테이블과 오른쪽 테이블의 모든 행을 포함해서 양쪽 테이블의 데이터를 모두 가져옴
+      두 테이블에 일치하는 행이 있는 경우에는 해당 데이터를 포함
+      왼쪽 테이블 또는 오른쪽 테이블의 한 쪽에만 있는 테이터는 NULL 값 포함
+      주로 양쪽 테이블의 모든 데이터를 가져와야할 때 사용
