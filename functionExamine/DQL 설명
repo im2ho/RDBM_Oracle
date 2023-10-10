@@ -30,11 +30,16 @@ ORDER BY : 검색 결과를 정렬하기 위해 사용, 정렬할 열 및 정렬
       ORDER BY 열이름 DESC; //혹은 ASC;
         -ASC : 오름차순(Default) / DESC : 내림차순
   
-UNION : 두 개 이상의 SELECT문 결과를 결합해서 하나의 결과 집합으로 반환
+UNION : SQL의 두 개 이상의 SELECT문 결과를 합쳐서 하나의 결과 집합으로 반환하는 연산자
+        중복된 행을 제거하고 중복된 행을 포함하지 않는 결과를 생성
     ex)
-      SELECT 열 이름 FROM 테이블1
+      SELECT column1, column2, ...
+      FROM table1
+
       UNION
-      SELECT 열 이름 FROM 테이블2;
+
+      SELECT column1, column2, ...
+      FROM table2;
 
 JOIN : 다수의 테이블을 연결하여 데이터를 결합하는데 사용
   INNER JOIN / LEFT JOIN / RIGHT JOIN / FULL OUTER JOIN 등... 다양한 결합유형
