@@ -1,4 +1,4 @@
---------ÇÔ¼ö Function--------
+--------í•¨ìˆ˜ Function--------
 
 --CREATE
 /*
@@ -12,58 +12,77 @@ birthdate DATE
 );
 
 --INSERT
---To Date ÇÔ¼ö »ç¿ëÇØ¼­ ³¯Â¥ Çü½ÄÀ¸·Î µ¥ÀÌÅÍ »ğÀÔ
+--To Date í•¨ìˆ˜ ì‚¬ìš©í•´ì„œ ë‚ ì§œ í˜•ì‹ìœ¼ë¡œ ë°ì´í„° ì‚½ì…
 
 INSERT INTO fridaytable (id, name, description, birthdate)
-VALUES (1, 'ÃÖÆÈÈ£', '¸Á³ª´Ï', TO_DATE('1995-05-25', 'YYYY-MM-DD'));
+VALUES (1, 'ìµœíŒ”í˜¸', 'ë§ë‚˜ë‹ˆ', TO_DATE('1995-05-25', 'YYYY-MM-DD'));
 
 INSERT INTO fridaytable (id, name, description, birthdate)
-VALUES (2, 'ÇÑÈ£ÁÖ', 'Èæ°õ', TO_DATE('1997-08-16', 'YYYY-MM-DD'));
+VALUES (2, 'í•œí˜¸ì£¼', 'í‘ê³°', TO_DATE('1997-08-16', 'YYYY-MM-DD'));
 
 INSERT INTO fridaytable (id, name, description, birthdate)
-VALUES (3, 'ÀÌÁØ¿µ', 'ÁÖ³Ã', TO_DATE('1999-06-22', 'YYYY-MM-DD'));
+VALUES (3, 'ì´ì¤€ì˜', 'ì£¼ëƒ‰', TO_DATE('1999-06-22', 'YYYY-MM-DD'));
 
 INSERT INTO fridaytable (id, name, description, birthdate)
-VALUES (4, '±è¿¹¸²', '¿ù´ç', TO_DATE('1996-11-29', 'YYYY-MM-DD'));
+VALUES (4, 'ê¹€ì˜ˆë¦¼', 'ì›”ë‹¹', TO_DATE('1996-11-29', 'YYYY-MM-DD'));
 
 INSERT INTO fridaytable (id, name, description, birthdate)
-VALUES (5, 'ÇÑ¿îÇĞ', '¹Ùº¸', TO_DATE('2000-02-09', 'YYYY-MM-DD'));
+VALUES (5, 'í•œìš´í•™', 'ë°”ë³´', TO_DATE('2000-02-09', 'YYYY-MM-DD'));
 */
 
---ORDER BY : °á°ú Á¤·Ä
-SELECT * FROM fridaytable ORDER BY name; //ÀÌ¸§ ±âÁØ ¿À¸§Â÷¼ø Á¤·Ä
-SELECT * FROM fridaytable ORDER BY birthdate; //³ªÀÌ¼ø Á¤·Ä
+--ORDER BY : ê²°ê³¼ ì •ë ¬
+SELECT * FROM fridaytable ORDER BY name; //ì´ë¦„ ê¸°ì¤€ ì˜¤ë¦„ì°¨ìˆœ ì •ë ¬
+SELECT * FROM fridaytable ORDER BY birthdate; //ë‚˜ì´ìˆœ ì •ë ¬
 
---COUNT : ÇàÀÇ ¼ö¸¦ ¼¼¾îÁØ´Ù
-SELECT COUNT(*) AS row_count FROM fridaytable; //AS: ÇàÀÇ °³¼ö¸¦ ¼¼¼­ ÀúÀåÇÒ ÀÌ¸§
+--COUNT : í–‰ì˜ ìˆ˜ë¥¼ ì„¸ì–´ì¤€ë‹¤
+SELECT COUNT(*) AS row_count FROM fridaytable; //AS: í–‰ì˜ ê°œìˆ˜ë¥¼ ì„¸ì„œ ì €ì¥í•  ì´ë¦„
 
---Å×ÀÌºí ±¸Á¶ º¯°æÇÏ±â
---¿­ÀÇ Å©±â ´Ã¸®±â
-ALTER TABLE fridaytable MODIFY description VARCHAR2(200); //200À¸·Î ´Ã·ÁÁÜ
+--í…Œì´ë¸” êµ¬ì¡° ë³€ê²½í•˜ê¸°
+--ì—´ì˜ í¬ê¸° ëŠ˜ë¦¬ê¸°
+ALTER TABLE fridaytable MODIFY description VARCHAR2(200); //200ìœ¼ë¡œ ëŠ˜ë ¤ì¤Œ
 
---SUM : ¼ıÀÚ ¿­ÀÇ ÇÕÀ» °è»ê
-SELECT SUM(id) AS id_sum FROM fridaytable; //¸ğµç id °ªÀ» ÇÕ»ê
+--SUM : ìˆ«ì ì—´ì˜ í•©ì„ ê³„ì‚°
+SELECT SUM(id) AS id_sum FROM fridaytable; //ëª¨ë“  id ê°’ì„ í•©ì‚°
 
---TO_CHAR : ³¯Â¥¸¦ ¹®ÀÚ¿­·Î ¹İÈ¯
+--TO_CHAR : ë‚ ì§œë¥¼ ë¬¸ìì—´ë¡œ ë°˜í™˜
 SELECT name, TO_CHAR(birthdate, 'YYYY-MM-DD') AS birthdate_str FROM fridaytable;
 
---Length : ¹®ÀÚ¿­ÀÇ ±æÀÌ ¹İÈ¯
+--Length : ë¬¸ìì—´ì˜ ê¸¸ì´ ë°˜í™˜
 SELECT name, description, LENGTH(description) AS discription_len FROM fridaytable;
 
 /*
 INSERT INTO fridaytable (id, name, description, birthdate)
-VALUES(6, 'ÇÑº°', '¾Æ°«½Ã¿ÍÈæ°õÀÌ', TO_DATE('2017-05-05', 'YYYY-MM-DD'));
+VALUES(6, 'í•œë³„', 'ì•„ê°“ì‹œì™€í‘ê³°ì´', TO_DATE('2017-05-05', 'YYYY-MM-DD'));
 
 INSERT INTO fridaytable (id, name, description, birthdate)
 VALUES(7, 'Windy', 'Pokemon of Legend', TO_DATE('2017-05-05', 'YYYY-MM-DD'));
 */
 
---UPPER : ¹®ÀÚ¿­À» ´ë¹®ÀÚ·Î º¯È¯
+--UPPER : ë¬¸ìì—´ì„ ëŒ€ë¬¸ìë¡œ ë³€í™˜
 SELECT name, UPPER(name), UPPER(description) FROM fridaytable;
---LOWER : ¹®ÀÚ¿­À» ¼Ò¹®ÀÚ·Î º¯È¯
+--LOWER : ë¬¸ìì—´ì„ ì†Œë¬¸ìë¡œ ë³€í™˜
 SELECT name, LOWER(name), LOWER(description) FROM fridaytable;
 
---ROUND : ¼ıÀÚ¸¦ ¹İ¿Ã¸²
---birthdate ¿­ÀÇ ¿¬µµ¸¦ ¹İ¿Ã¸²ÇÏ¿© Ãâ·Â
---EXTRACT ³¯Â¥ °ª¿¡¼­ ¿¬µµ¸¦ ÃßÃâ
+--ROUND : ìˆ«ìë¥¼ ë°˜ì˜¬ë¦¼
+--birthdate ì—´ì˜ ì—°ë„ë¥¼ ë°˜ì˜¬ë¦¼í•˜ì—¬ ì¶œë ¥
+--EXTRACT ë‚ ì§œ ê°’ì—ì„œ ì—°ë„ë¥¼ ì¶”ì¶œ
 SELECT name, ROUND(EXTRACT(YEAR FROM birthdate)) AS BirthYear FROM fridaytable;
+
+--NVL (Null Value ì–´ì©Œêµ¬) : NULL ê°’ì„ ë‹¤ë¥¸ ê°’ìœ¼ë¡œ ëŒ€ì²´
+SELECT ename, NVL(commission, 0) AS commission
+FROM employee;
+
+--NEXT DAY ë‹¤ìŒ ì£¼ì–´ì§„ ìš”ì¼ ë‚ ì§œ ì°¾ê¸°
+SELECT ename, next_day(sysdate, 'FRIDAY') AS next_day
+FROM dual;
+                                  
+--TRUNC : ë‚ ì§œ ë˜ëŠ” ìˆ«ìì˜ ì†Œìˆ˜ë¶€ ì œê±°
+SELECT ename, TRUNC(salary) AS trunc_salary FROM employee;
+
+--FLOOR, CEIL, ROUND : ë²„ë¦¼/ì˜¬ë¦¼/ë°˜ì˜¬ë¦¼
+SELECT ename, FLOOR(salary) AS floor_salary FROM employee;
+SELECT ename, CEIL(salary) AS ceil_salary FROM employee;
+SELECT ename, ROUND(salary,2) AS round_salary FROM employee;
+
+--ABS : ì ˆëŒ€ê°’ ê³„ì‚° (ABsolute)
+SELECT ename, ABS(commission) AS abs_commission FROM employee;
