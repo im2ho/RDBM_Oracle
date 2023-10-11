@@ -30,11 +30,16 @@ ORDER BY : 검색 결과를 정렬하기 위해 사용, 정렬할 열 및 정렬
       ORDER BY 열이름 DESC; //혹은 ASC;
         -ASC : 오름차순(Default) / DESC : 내림차순
   
-UNION : 두 개 이상의 SELECT문 결과를 결합해서 하나의 결과 집합으로 반환
+UNION : SQL의 두 개 이상의 SELECT문 결과를 합쳐서 하나의 결과 집합으로 반환하는 연산자
+        중복된 행을 제거하고 중복된 행을 포함하지 않는 결과를 생성
     ex)
-      SELECT 열 이름 FROM 테이블1
+      SELECT column1, column2, ...
+      FROM table1
+
       UNION
-      SELECT 열 이름 FROM 테이블2;
+
+      SELECT column1, column2, ...
+      FROM table2;
 
 JOIN : 다수의 테이블을 연결하여 데이터를 결합하는데 사용
   INNER JOIN / LEFT JOIN / RIGHT JOIN / FULL OUTER JOIN 등... 다양한 결합유형
@@ -74,3 +79,32 @@ CASE : 조건에 따라 다른 결과를 반환함, 주로 SELECT문에서 사�
     여러 WHEN을 사용해서 여러 조건을 처리할 수 있으며, 각 조건에 해당하는 결과를 정의
     ELSE : 모든 조건이 만족되지 않을 때 반환할 기본값을 정의하는데 사용 (ELSE는 선택사항으로 없어도 무방함)
     END : CASE문을 종료함을 나타냄
+
+FETCH FIRST 5 ROWS ONLY 
+결과가 모여진 집합에서 첫번째 행부터 다섯번째 행까지만 번환
+
+
+FETCH : 데이터 조회 및 검색 목적으로 사용
+	데이터베이스에서 특정 행을 가져오거나 
+	결과 집합에서 행을 검색하는 데 사용할 수 있음
+	일반적으로 SELECT 문과 함께 사용되어
+	결과 집합에서 일부 행을 가져오거나
+	특정 순서로 정렬된 결과에서 특정 범위의 행을 검색하는데 사용
+예제코드 : 
+	--처음에 10개 행을 가져올 때
+	SELECT *
+	FROM 테이블
+	FETCH FIRST 10 ROWS ONLY;
+	--범위 지정해서 행을 검색할 때
+	-- 10번째부터 20번째 행을 가져올 때
+	SELECT *
+	FROM 테이블
+	OFFSET 10 ROWS 
+	FETCH NEXT 10 ROWS ONLY;
+
+FETCH FIRST :처음 10개의 행을 가져옴
+	결과 집합의 처음부터 시작하여 지정된 개수의 행을 가져옴
+OFFSET 10 ROWS : 처음 10개의 행을 건너뛴 다음에 데이터 검색을
+		시작함
+
+FETCH NEXT 10 ROWS ONLY : 그 다음 10개의 행을 가져옴
