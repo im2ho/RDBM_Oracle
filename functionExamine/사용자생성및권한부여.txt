@@ -1,0 +1,49 @@
+CMD창 실행 후..
+
+최고 관리자 권한으로 SQL접속
+C:\Users\user1>sqlplus sys/oracle as sysdba
+
+세션변경
+ALTER SESSION SET "_ORACLE_SCRIPT" = TRUE;
+
+사용자생성
+CREATE USER khstore IDENTIFIED by khstore;
+
+권한부여
+GRANT CREATE SESSION TO khstore;
+GRANT DBA TO khstore;
+GRANT CONNECT TO khstore;
+
+==================================
+<사용자 삭제>
+
+Microsoft Windows [Version 10.0.19045.3448]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\user1>sqlplus sys/oracle as sysdba
+
+SQL*Plus: Release 21.0.0.0.0 - Production on 금 10월 6 16:48:03 2023
+Version 21.3.0.0.0
+
+Copyright (c) 1982, 2021, Oracle.  All rights reserved.
+
+
+다음에 접속됨:
+Oracle Database 21c Express Edition Release 21.0.0.0.0 - Production
+Version 21.3.0.0.0
+
+SQL> alter session set "_oracle_script"=true;
+
+세션이 변경되었습니다.
+
+SQL> DROP USER SAY CASCADE;
+
+사용자가 삭제되었습니다.
+
+SQL> DROP USER KH1 CASCADE;
+
+사용자가 삭제되었습니다.
+
+SQL> DROP USER TESTER CASCADE;
+
+사용자가 삭제되었습니다.
