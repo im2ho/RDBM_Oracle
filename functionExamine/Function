@@ -1,14 +1,14 @@
  --ORDER BY : 결과 정렬
  --이름을 오름차순으로 정렬
  SELECT * FROM fridaytable ORDER BY birthdate;
- 
+  
  --COUNT 행의 수를 세어줍니다.
  SELECT COUNT(*) AS row_COUNT FROM fridaytable;
- 
+  
  -- 테이블 구조 변경하기
  -- 열의 크기 늘리기
--- description 열의 크기를 늘리기
---ALTER TABLE fridaytable MODIFY description VARCHAR2(200);
+ -- description 열의 크기를 늘리기
+ --ALTER TABLE fridaytable MODIFY description VARCHAR2(200);
 
  --SUM 숫자 열의 합을 계산
  --모든 id 값을 합산
@@ -70,3 +70,7 @@
   PARTITION BY : 데이터를 파티션으로 나누는데 사용할 열을 지정
   ORDER BY : 각 파티션 내에서 행 순서를 정의하는데 사용할 열을 지정
   ROWS BETWEEN : 계산을 수행할 행의 범위를 정의하는 데 사용
+
+--RANK() 와 ROW_NUMBER() : 결과 집합의 행에 순위를 할당
+--RANK() : 동일한 값이 있는 경우 동일한 순위 부여 ex) 1,2,2,4,5,5,7...
+--ROW_NUMBER() : 동일한 값이 있더라도 각 행에 고유한 순위를 부여 (각 행에 대해 중복되지 않는 순위 할당) > 항상 연속적인 순서의 결과 집합 발생
