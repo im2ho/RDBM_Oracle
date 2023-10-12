@@ -1,0 +1,47 @@
+1. VIEW(뷰)
+    논리적 객체
+    실제로 데이터를 저장하지 않고 쿼리 결과를 나타내는 가상 테이블
+    뷰 자체에서는 데이터를 저장하거나 변경하기 않기 때문에
+    DML명령(INSERT, UPDATE, DELETE)을 통해 뷰를 직접 수정하는 것은 일반적으로 제한
+  
+    ex)
+     CREATE VIEW 뷰이름생성 AS
+     SELECT 넣고자하는 컬럼
+     FROM 테이블명
+     JOIN;
+  
+     CREATE VIEW cafe_order_menu AS
+     SELECT
+      o.order_id,
+      c.name AS cafe_name,
+      m.menu_name,
+      o.order_date,
+      o.quantity,
+      m.price,
+      (o.quantity * m.price) AS total_price
+     FROM orders o
+      JOIN cafes c ON o.cafe_id = c.cafe_id
+      JOIN menu m ON o.menu_id = m.menu_id;
+
+2. 인덱스(Index)
+    데이터베이스 성능을 향상시키는 데 중요한 역할을 하는 데이터 구조
+    특정 열(컬럼)에 대한 검색 및 조회 작업을 최적화 하기 위해 사용
+  
+    ex)
+    --employee 테이블에서 name이라는 column 기반으로 인덱스 생성
+    CREATE INDEX indx_ename ON employee(name);
+    --인덱스를 사용한 SELECT 예제문
+    SELECT * FROM employee WHERE name = 'SAY';
+  
+    index는 B-Tree 구조로 되어있음
+    B-Tree: 데이터를 저장하고 효율적으로 검색하는데 사용되는 데이터구조
+    Balanced Tree 주로 데이터베이스 시스템, 파일시스템, 디스크관리, 파일구조, 검색엔진 등 다양한 컴퓨팅 시스템에서 인덱싱에 사용
+
+3. ROWNUM
+    데이터베이스에서 사용할 수 있는 가상 열 중 하나
+    검색 결과 집합의 각 행에 할당된 고유 번호를 나타냄
+    결과 집합의 특정 행을 선택하거나 행에 번호를 할당하는데 사용
+
+    특징: 검색 결과 집합을 처리하는 동안 생성됨. 결과 집합에 대한 각 행에 할당
+          1부터 시작하여 각 행에 연속된 정수 값을 부여
+          원하는 행을 선택하거나 행에 일련번호를 할당할 수는 있지만, 결과를 정렬하거나 분할하는 작업에는 영향을 주지 X
