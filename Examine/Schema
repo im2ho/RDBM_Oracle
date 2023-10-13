@@ -34,4 +34,7 @@
       JOIN pokemon pm ON pd.poke_num = pm.poke_num;
 
     4. 제약조건 정의
-    ALTER TABLE pokedex ADD CONSTRAINT poke_id
+    ALTER TABLE pokedex ADD CONSTRAINT poke_num CHECK (poke_num>0);
+	
+    5. 인덱스 정의
+		CREATE INDEX idx_poke_name ON BOOK(poke_name);
