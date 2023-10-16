@@ -110,7 +110,8 @@ INNER JOIN / LEFT JOIN / RIGHT JOIN / FULL OUTER JOIN 등... 다양한 결합유
 
 	ex 1)
 	SELECT * FROM 테이블
-	FETCH FIRST 10 ROWS ONLY; --처음에 10개 행을 가져올 때
+	FETCH FIRST 10 ROWS ONLY; --처음에 10개 행을 가져올 때 (ROW로도 작성 가능)
+	--혹은 FETCH NEXT 10 ROWS ONLY로도 작성가능(기능에 차이X)
 	
 	ex 2)
 	SELECT * FROM 테이블
